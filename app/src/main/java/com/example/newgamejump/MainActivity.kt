@@ -1,5 +1,6 @@
 package com.example.newgamejump
 
+import android.content.Intent
 import android.os.Bundle
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
@@ -11,6 +12,8 @@ import com.google.android.material.navigation.NavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import android.view.Menu
+import android.view.View
+import kotlinx.android.synthetic.main.content_main.*
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
@@ -35,6 +38,13 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         toggle.syncState()
 
         navView.setNavigationItemSelectedListener(this)
+
+        zyankengameButton.setOnClickListener{ onJankenButtonTapped(it) }
+    }
+
+    fun onJankenButtonTapped(view: View?){
+        val intent = Intent(this, Janken::class.java)
+        startActivity(intent)
     }
 
     override fun onBackPressed() {
